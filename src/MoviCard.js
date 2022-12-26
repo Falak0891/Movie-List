@@ -1,81 +1,11 @@
 import React from "react";
 
 class MovieCard extends React.Component{
-    constructor(){
-        super();
-
-        this.movies={title: "The Avengers",
-        plot: "Plot of the movie is related to super natural powers",
-        price: 199,
-        rating: 8.0,
-        poster: "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
-    }
-        
-        this.state = {
-            stars: 0,
-            fav:false,
-            isInCart:false
-            
-        }
-        //this.addStars = this.addStars.bind(this);
-    }
-
-    addStars = () => {
-
-        //this.state.stars += 0.5;
-        
-
-        //form 1
-        // this.setState({
-        //     stars: this.state.stars+0.5
-        // })
-
-       // form2
-        this.setState((prevState) => {
-            if (prevState.stars >=5){
-                return;
-            }
-        return {
-            stars: prevState.stars + 0.5
-        }
-        }, () => console.log("inside seState function", this.state.stars))
-
-        
-       console.log("this.state.stars", this.state.stars);
-    }
-
-    decStars = () => {
-
-        //form2
-        this.setState((prevState) => {
-            if (prevState.stars <=0){
-                return;
-            }
-        return {
-            stars: prevState.stars - 0.5
-        }
-    })
-
-        
-      //  console.log("this", this.state.stars);
-    }
-
-    toggleFav= () => {
-        this.setState({
-            fav: !this.state.fav
-        })
-    }
-
-    toggleCart= () => {
-        this.setState({
-            isInCart: !this.state.isInCart
-        })
-    }
-
+   
     render(){
         //console.log("Render Function called")
-        const {title : movieName,plot,price,rating,poster} = this.movies;
-       const {stars,fav,isInCart} = this.state;
+        
+       const {title : movieName,plot,price,rating,poster,stars,fav,isInCart} = this.props;
     
         return(
             <div className="main">
